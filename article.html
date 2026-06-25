@@ -4,703 +4,691 @@
 
 <div class="rg-beatles-article">
 <style>
-  .rg-beatles-article *,
-  .rg-beatles-article *::before,
-  .rg-beatles-article *::after {
-    box-sizing: border-box;
-  }
+ .rg-beatles-article *,
+ .rg-beatles-article *::before,
+ .rg-beatles-article *::after {
+ box-sizing: border-box;
+ }
 
-  .rg-beatles-article {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 18px;
-    line-height: 1.75;
-    color: #1a1a1a;
-    background: #ffffff;
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 0 0 56px;
-  }
+ .rg-beatles-article {
+ font-family: 'Source Serif 4', Georgia, serif;
+ font-size: 18px;
+ line-height: 1.75;
+ color: #1a1a1a;
+ background: #ffffff;
+ max-width: 820px;
+ margin: 0 auto;
+ padding: 0 0 56px;
+ }
 
-  /* ── Header ── */
-  .rg-beatles-article .rg-header {
-    background: #ffffff;
-    border-top: 5px solid #F5A623;
-    padding: 40px 40px 32px;
-    position: relative;
-    overflow: hidden;
-  }
+ /* ── Header ── */
+ .rg-beatles-article .rg-header {
+ background: #ffffff;
+ border-top: 5px solid #F5A623;
+ padding: 40px 40px 32px;
+ position: relative;
+ overflow: hidden;
+ }
 
-  .rg-beatles-article .rg-header::after {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent 0%, rgba(245,166,35,0.4) 50%, transparent 100%);
-    background-size: 200% 100%;
-    animation: rg-shimmer 3s linear infinite;
-  }
+ .rg-beatles-article .rg-header::after {
+ content: '';
+ position: absolute;
+ top: 5px;
+ left: 0;
+ right: 0;
+ height: 3px;
+ background: linear-gradient(90deg, transparent 0%, rgba(245,166,35,0.4) 50%, transparent 100%);
+ background-size: 200% 100%;
+ animation: rg-shimmer 3s linear infinite;
+ }
 
-  @keyframes rg-shimmer {
-    0%   { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
+ @keyframes rg-shimmer {
+ 0% { background-position: 200% 0; }
+ 100% { background-position: -200% 0; }
+ }
 
-  .rg-beatles-article .rg-eyebrow {
-    font-family: system-ui, -apple-system, sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #F5A623;
-    margin: 0 0 14px;
-  }
+ .rg-beatles-article .rg-eyebrow {
+ font-family: system-ui, -apple-system, sans-serif;
+ font-size: 11px;
+ font-weight: 700;
+ letter-spacing: 0.12em;
+ text-transform: uppercase;
+ color: #F5A623;
+ margin: 0 0 14px;
+ }
 
-  .rg-beatles-article h1 {
-    font-size: clamp(26px, 4vw, 38px);
-    font-weight: 700;
-    line-height: 1.15;
-    color: #111111;
-    margin: 0 0 16px;
-  }
+ .rg-beatles-article h1 {
+ font-size: clamp(26px, 4vw, 38px);
+ font-weight: 700;
+ line-height: 1.15;
+ color: #111111;
+ margin: 0 0 16px;
+ }
 
-  .rg-beatles-article .rg-deck {
-    font-size: 17px;
-    color: #666666;
-    margin: 0;
-    font-style: italic;
-  }
+ .rg-beatles-article .rg-deck {
+ font-size: 17px;
+ color: #666666;
+ margin: 0;
+ font-style: italic;
+ }
 
-  /* ── Body wrapper ── */
-  .rg-beatles-article .rg-body {
-    padding: 0 40px;
-  }
+ /* ── Body wrapper ── */
+ .rg-beatles-article .rg-body {
+ padding: 0 40px;
+ }
 
-  /* ── Headings ── */
-  .rg-beatles-article h2 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #111111;
-    margin: 48px 0 16px;
-    padding-left: 14px;
-    border-left: 4px solid #F5A623;
-    line-height: 1.25;
-  }
+ /* ── Headings ── */
+ .rg-beatles-article h2 {
+ font-size: 22px;
+ font-weight: 700;
+ color: #111111;
+ margin: 48px 0 16px;
+ padding-left: 14px;
+ border-left: 4px solid #F5A623;
+ line-height: 1.25;
+ }
 
-  .rg-beatles-article h3 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #111111;
-    margin: 0 0 6px;
-    line-height: 1.3;
-  }
+ .rg-beatles-article h3 {
+ font-size: 20px;
+ font-weight: 700;
+ color: #111111;
+ margin: 0 0 6px;
+ line-height: 1.3;
+ }
 
-  /* ── Body copy ── */
-  .rg-beatles-article p {
-    margin: 0 0 16px;
-    color: #333333;
-  }
+ /* ── Body copy ── */
+ .rg-beatles-article p {
+ margin: 0 0 16px;
+ color: #333333;
+ }
 
-  .rg-beatles-article strong {
-    color: #111111;
-    font-weight: 700;
-  }
+ .rg-beatles-article strong {
+ color: #111111;
+ font-weight: 700;
+ }
 
-  /* ── Key findings list ── */
-  .rg-beatles-article .rg-findings {
-    list-style: none;
-    padding: 0;
-    margin: 16px 0 28px;
-    counter-reset: finding;
-  }
+ /* ── Key findings list ── */
+ .rg-beatles-article .rg-findings {
+ list-style: none;
+ padding: 0;
+ margin: 16px 0 28px;
+ counter-reset: finding;
+ }
 
-  .rg-beatles-article .rg-findings li {
-    counter-increment: finding;
-    padding: 13px 18px 13px 50px;
-    margin: 0 0 8px;
-    background: #fafaf8;
-    border: 1px solid #eeebe3;
-    border-radius: 6px;
-    color: #333333;
-    position: relative;
-    font-size: 16px;
-    line-height: 1.55;
-  }
+ .rg-beatles-article .rg-findings li {
+ counter-increment: finding;
+ padding: 13px 18px 13px 50px;
+ margin: 0 0 8px;
+ background: #fafaf8;
+ border: 1px solid #eeebe3;
+ border-radius: 6px;
+ color: #333333;
+ position: relative;
+ font-size: 16px;
+ line-height: 1.55;
+ }
 
-  .rg-beatles-article .rg-findings li::before {
-    content: counter(finding);
-    position: absolute;
-    left: 14px;
-    top: 14px;
-    width: 22px;
-    height: 22px;
-    background: #F5A623;
-    color: #ffffff;
-    border-radius: 50%;
-    font-family: system-ui, sans-serif;
-    font-size: 11px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+ .rg-beatles-article .rg-findings li::before {
+ content: counter(finding);
+ position: absolute;
+ left: 14px;
+ top: 14px;
+ width: 22px;
+ height: 22px;
+ background: #F5A623;
+ color: #ffffff;
+ border-radius: 50%;
+ font-family: system-ui, sans-serif;
+ font-size: 11px;
+ font-weight: 800;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
 
-  /* ── Embed wrappers ── */
-  .rg-beatles-article .rg-embed {
-    border: 1px solid #e8e4da;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 32px 0;
-    display: block;
-  }
+ /* ── Embed wrappers ── */
+ .rg-beatles-article .rg-embed {
+ border: 1px solid #e8e4da;
+ border-radius: 10px;
+ overflow: hidden;
+ margin: 32px 0;
+ display: block;
+ }
 
-  .rg-beatles-article .rg-embed iframe {
-    display: block;
-    width: 100%;
-    border: none;
-  }
+ .rg-beatles-article .rg-embed iframe {
+ display: block;
+ width: 100%;
+ border: none;
+ }
 
-  /* ── Rank entries ── */
-  .rg-beatles-article .rg-rank-entry {
-    margin: 40px 0 0;
-    padding-top: 36px;
-    border-top: 1px solid #e8e4da;
-  }
+ /* ── Rank entries ── */
+ .rg-beatles-article .rg-rank-entry {
+ margin: 40px 0 0;
+ padding-top: 36px;
+ border-top: 1px solid #e8e4da;
+ }
 
-  .rg-beatles-article .rg-rank-entry:first-child {
-    border-top: none;
-    padding-top: 0;
-  }
+ .rg-beatles-article .rg-rank-entry:first-child {
+ border-top: none;
+ padding-top: 0;
+ }
 
-  .rg-beatles-article .rg-rank-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 4px;
-  }
+ .rg-beatles-article .rg-rank-header {
+ display: flex;
+ align-items: flex-start;
+ gap: 14px;
+ margin-bottom: 4px;
+ }
 
-  .rg-beatles-article .rg-rank-badge {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: system-ui, sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    margin-top: 2px;
-    background: #F5A623;
-    color: #ffffff;
-  }
+ .rg-beatles-article .rg-rank-badge {
+ flex-shrink: 0;
+ width: 36px;
+ height: 36px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-family: system-ui, sans-serif;
+ font-size: 12px;
+ font-weight: 800;
+ margin-top: 2px;
+ background: #F5A623;
+ color: #ffffff;
+ }
 
-  .rg-beatles-article .rg-rank-badge.silver { background: #9a9a9a; }
-  .rg-beatles-article .rg-rank-badge.bronze { background: #b07d3a; }
-  .rg-beatles-article .rg-rank-badge.standard { background: #1E2433; color: #F5A623; }
+ .rg-beatles-article .rg-rank-badge.silver { background: #9a9a9a; }
+ .rg-beatles-article .rg-rank-badge.bronze { background: #b07d3a; }
+ .rg-beatles-article .rg-rank-badge.standard { background: #1E2433; color: #F5A623; }
 
-  .rg-beatles-article .rg-rank-details {
-    font-style: italic;
-    color: #888888;
-    font-size: 14px;
-    margin: 0 0 16px;
-    padding-left: 50px;
-    font-family: system-ui, sans-serif;
-  }
+ .rg-beatles-article .rg-rank-details {
+ font-style: italic;
+ color: #888888;
+ font-size: 14px;
+ margin: 0 0 16px;
+ padding-left: 50px;
+ font-family: system-ui, sans-serif;
+ }
 
-  /* ── Data pills ── */
-  .rg-beatles-article .rg-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 18px 0 0;
-  }
+ /* ── Data pills ── */
+ .rg-beatles-article .rg-pills {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ margin: 18px 0 0;
+ }
 
-  .rg-beatles-article .rg-pill {
-    font-family: system-ui, sans-serif;
-    font-size: 12px;
-    background: #fafaf8;
-    border: 1px solid #e0dbd0;
-    border-radius: 20px;
-    padding: 5px 13px;
-    color: #555555;
-    white-space: nowrap;
-  }
+ .rg-beatles-article .rg-pill {
+ font-family: system-ui, sans-serif;
+ font-size: 12px;
+ background: #fafaf8;
+ border: 1px solid #e0dbd0;
+ border-radius: 20px;
+ padding: 5px 13px;
+ color: #555555;
+ white-space: nowrap;
+ }
 
-  .rg-beatles-article .rg-pill span {
-    color: #c47f00;
-    font-weight: 700;
-  }
+ .rg-beatles-article .rg-pill span {
+ color: #c47f00;
+ font-weight: 700;
+ }
 
-  /* ── Callout table ── */
-  .rg-beatles-article .rg-table-wrap {
-    overflow-x: auto;
-    margin: 22px 0;
-    border-radius: 8px;
-    border: 1px solid #e8e4da;
-  }
+ /* ── Callout table ── */
+ .rg-beatles-article .rg-table-wrap {
+ overflow-x: auto;
+ margin: 22px 0;
+ border-radius: 8px;
+ border: 1px solid #e8e4da;
+ }
 
-  .rg-beatles-article table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 15px;
-    font-family: system-ui, sans-serif;
-  }
+ .rg-beatles-article table {
+ width: 100%;
+ border-collapse: collapse;
+ font-size: 15px;
+ font-family: system-ui, sans-serif;
+ }
 
-  .rg-beatles-article thead th {
-    background: #1E2433;
-    color: #F5A623;
-    font-weight: 700;
-    text-align: left;
-    padding: 11px 16px;
-    font-size: 11px;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-  }
+ .rg-beatles-article thead th {
+ background: #1E2433;
+ color: #F5A623;
+ font-weight: 700;
+ text-align: left;
+ padding: 11px 16px;
+ font-size: 11px;
+ letter-spacing: 0.07em;
+ text-transform: uppercase;
+ }
 
-  .rg-beatles-article tbody tr { border-bottom: 1px solid #e8e4da; }
-  .rg-beatles-article tbody tr:last-child { border-bottom: none; }
-  .rg-beatles-article tbody td { padding: 11px 16px; color: #333333; background: #ffffff; }
-  .rg-beatles-article tbody tr:nth-child(even) td { background: #fafaf8; }
+ .rg-beatles-article tbody tr { border-bottom: 1px solid #e8e4da; }
+ .rg-beatles-article tbody tr:last-child { border-bottom: none; }
+ .rg-beatles-article tbody td { padding: 11px 16px; color: #333333; background: #ffffff; }
+ .rg-beatles-article tbody tr:nth-child(even) td { background: #fafaf8; }
 
-  /* ── Expert block ── */
-  .rg-beatles-article .rg-expert {
-    background: #fafaf8;
-    border-left: 4px solid #F5A623;
-    border-radius: 0 8px 8px 0;
-    padding: 28px 32px;
-    margin: 32px 0;
-  }
+ /* ── Expert block ── */
+ .rg-beatles-article .rg-expert {
+ background: #fafaf8;
+ border-left: 4px solid #F5A623;
+ border-radius: 0 8px 8px 0;
+ padding: 28px 32px;
+ margin: 32px 0;
+ }
 
-  .rg-beatles-article .rg-expert p {
-    color: #444444;
-    font-style: italic;
-    margin: 0 0 16px;
-  }
+ .rg-beatles-article .rg-expert p {
+ color: #444444;
+ font-style: italic;
+ margin: 0 0 16px;
+ }
 
-  .rg-beatles-article .rg-expert-attr {
-    font-family: system-ui, sans-serif;
-    font-size: 12px;
-    color: #c47f00;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
+ .rg-beatles-article .rg-expert-attr {
+ font-family: system-ui, sans-serif;
+ font-size: 12px;
+ color: #c47f00;
+ font-style: normal;
+ font-weight: 700;
+ letter-spacing: 0.06em;
+ text-transform: uppercase;
+ }
 
-  /* ── Internal links ── */
-  .rg-beatles-article .rg-internal-links {
-    background: #fafaf8;
-    border: 1px solid #e8e4da;
-    border-radius: 8px;
-    padding: 18px 22px;
-    margin: 36px 0;
-    font-size: 16px;
-    color: #444444;
-  }
+ /* ── Internal links ── */
+ .rg-beatles-article .rg-internal-links {
+ background: #fafaf8;
+ border: 1px solid #e8e4da;
+ border-radius: 8px;
+ padding: 18px 22px;
+ margin: 36px 0;
+ font-size: 16px;
+ color: #444444;
+ }
 
-  .rg-beatles-article .rg-internal-links a {
-    color: #c47f00;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
+ .rg-beatles-article .rg-internal-links a {
+ color: #c47f00;
+ text-decoration: underline;
+ text-underline-offset: 3px;
+ }
 
-  /* ── Methodology ── */
-  .rg-beatles-article .rg-methodology {
-    background: #fafaf8;
-    border: 1px solid #e8e4da;
-    border-radius: 8px;
-    padding: 28px 32px;
-    margin: 32px 0 0;
-    font-size: 15px;
-    color: #555555;
-    line-height: 1.7;
-  }
+ /* ── Methodology ── */
+ .rg-beatles-article .rg-methodology {
+ background: #fafaf8;
+ border: 1px solid #e8e4da;
+ border-radius: 8px;
+ padding: 28px 32px;
+ margin: 32px 0 0;
+ font-size: 15px;
+ color: #555555;
+ line-height: 1.7;
+ }
 
-  .rg-beatles-article .rg-methodology .rg-meth-title {
-    font-family: system-ui, sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #888888;
-    margin: 0 0 14px;
-  }
+ .rg-beatles-article .rg-methodology .rg-meth-title {
+ font-family: system-ui, sans-serif;
+ font-size: 11px;
+ font-weight: 700;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ color: #888888;
+ margin: 0 0 14px;
+ }
 
-  .rg-beatles-article .rg-methodology strong { color: #333333; }
+ .rg-beatles-article .rg-methodology strong { color: #333333; }
 
-  /* ── Sources ── */
-  .rg-beatles-article .rg-sources ul {
-    padding-left: 18px;
-    margin: 10px 0 0;
-  }
+ /* ── Sources ── */
+ .rg-beatles-article .rg-sources ul {
+ padding-left: 18px;
+ margin: 10px 0 0;
+ }
 
-  .rg-beatles-article .rg-sources li {
-    font-size: 14px;
-    color: #777777;
-    margin-bottom: 6px;
-    font-family: system-ui, sans-serif;
-  }
+ .rg-beatles-article .rg-sources li {
+ font-size: 14px;
+ color: #777777;
+ margin-bottom: 6px;
+ font-family: system-ui, sans-serif;
+ }
 
-  .rg-beatles-article .rg-sources a { color: #c47f00; text-underline-offset: 3px; }
+ .rg-beatles-article .rg-sources a { color: #c47f00; text-underline-offset: 3px; }
 
-  /* ── Closing line ── */
-  .rg-beatles-article .rg-closer {
-    font-style: italic;
-    color: #c47f00;
-    font-size: 17px;
-    margin-top: 28px;
-    margin-bottom: 0;
-  }
+ /* ── Closing line ── */
+ .rg-beatles-article .rg-closer {
+ font-style: italic;
+ color: #c47f00;
+ font-size: 17px;
+ margin-top: 28px;
+ margin-bottom: 0;
+ }
 
-  /* ── Responsive ── */
-  @media (max-width: 600px) {
-    .rg-beatles-article .rg-header,
-    .rg-beatles-article .rg-body,
-    .rg-beatles-article .rg-sources { padding-left: 20px; padding-right: 20px; }
-    .rg-beatles-article .rg-rank-details { padding-left: 0; }
-  }
+ /* ── Responsive ── */
+ @media (max-width: 600px) {
+ .rg-beatles-article .rg-header,
+ .rg-beatles-article .rg-body,
+ .rg-beatles-article .rg-sources { padding-left: 20px; padding-right: 20px; }
+ .rg-beatles-article .rg-rank-details { padding-left: 0; }
+ }
 </style>
 
 <!-- HEADER -->
 <div class="rg-header">
-  <p class="rg-eyebrow">RotoGrinders Research &bull; Global Beatles Day 2026</p>
-  <h1>The States Where You're Most Likely to Hear a Beatles Song (2026)</h1>
-  <p class="rg-deck">We put the Fab Four's legacy to the ultimate odds test — state by state, song by song.</p>
+ <p class="rg-eyebrow">RotoGrinders Research &bull; Global Beatles Day 2026</p>
+ <h1>The States Where You're Most Likely to Hear a Beatles Song (2026)</h1>
+ <p class="rg-deck">Sixty years on, we ran the numbers. Here's where America still can't get enough.</p>
 </div>
 
 <div class="rg-body">
 
-  <!-- INTRO -->
-  <h2>All You Need Is Odds</h2>
+ <!-- INTRO -->
+ <h2>All You Need Is Odds</h2>
 
-  <p>Here at RotoGrinders, we calculate odds for a living. So when Global Beatles Day rolled around on June 25, we asked the question that only an odds team would think to ask: <strong>what are the actual odds of hearing a Beatles song in your state?</strong></p>
+ <p>We calculate odds for a living. So when Global Beatles Day rolled around on June 25, we asked the question that only an odds team would think to ask: <strong>what are the chances of hearing a Beatles song in your state?</strong></p>
 
-  <p>We pulled average monthly Google search volumes for 28 Beatles-specific keywords and 8 broad music benchmark terms across all 50 states, covering the most recent 12 months of available data. Divide one by the other and you get a clean implied probability — the likelihood that any random music search in that state is Beatles-related.</p>
+ <p>We pulled 12 months of Google search data across all 50 states 28 Beatles-specific keywords measured against 8 broad music benchmarks. Divide one by the other and you get a clean implied probability: the likelihood that any music search in that state is Beatles-related.</p>
 
-  <p>The answer tells you exactly where Beatles music still dominates the cultural conversation. And the results are not what you'd expect from a band that released its last record over 50 years ago.</p>
+ <p>The results? Not what you'd expect from a band that hasn't released a record in over 50 years.</p>
 
-  <p><strong>Vermont leads the country at 2.92%.</strong> That means roughly 1 in every 34 music searches in the state is about The Beatles. The entire top four are small New England states. Mississippi sits last at 0.64%. The gap between first and last? <strong>4.6 times.</strong> For a band that has been part of the American soundtrack since 1964, that is a striking spread.</p>
+ <p><strong>Vermont leads the country at 2.92%.</strong> Roughly 1 in every 34 music searches in the state is about The Beatles. The entire top four are small New England states outranking New York, California, and every Sun Belt state. Mississippi sits last at 0.64%. That's a <strong>4.6 times gap</strong> between first and last.</p>
 
-  <p>Let it be known: the Beatles are alive and well in Vermont.</p>
+ <p>Happy Global Beatles Day. Let's get into it.</p>
 
-  <!-- KEY FINDINGS -->
-  <h2>Key Findings</h2>
-  <ul class="rg-findings">
-    <li><strong>Vermont ranks #1 at 2.92%</strong> — roughly 1 in every 34 music searches in the state is Beatles-related, the highest concentration in the country.</li>
-    <li><strong>The entire top four are New England states</strong> — Vermont, New Hampshire, Maine, and Rhode Island all outrank New York, California, and every Sun Belt state.</li>
-    <li><strong>"Here Comes The Sun" dominates 43 of 50 states</strong> — the most-searched Beatles track nationally by a wide margin, with only 7 states breaking the pattern.</li>
-    <li><strong>Vermont outperforms New York by more than 2 times</strong> (2.92% vs. 1.38%), despite New York having roughly 30 times the population.</li>
-    <li><strong>Mississippi ranks last at 0.64%</strong> — the gap between #1 Vermont and #50 Mississippi is 4.6 times, the widest spread in the dataset.</li>
-    <li><strong>Nevada is the only western state where "Hey Jude" tops the chart</strong> — every other western state defaults to "Here Comes The Sun."</li>
-  </ul>
+ <!-- KEY FINDINGS -->
+ <h2>Key Findings</h2>
+ <ul class="rg-findings">
+ <li><strong>Vermont ranks #1 at 2.92%</strong> roughly 1 in every 34 music searches in the state is Beatles-related, the highest concentration in the country.</li>
+ <li><strong>The entire top four are New England states</strong> Vermont, New Hampshire, Maine, and Rhode Island all outrank New York, California, and every Sun Belt state.</li>
+ <li><strong>"Here Comes The Sun" dominates 43 of 50 states</strong> the most-searched Beatles track nationally by a wide margin, with only 7 states breaking the pattern.</li>
+ <li><strong>Vermont outperforms New York by more than 2 times</strong> (2.92% vs. 1.38%), despite New York having roughly 30 times the population.</li>
+ <li><strong>Mississippi ranks last at 0.64%</strong> the gap between #1 Vermont and #50 Mississippi is 4.6 times, the widest spread in the dataset.</li>
+ <li><strong>Nevada is the only western state where "Hey Jude" tops the chart</strong> every other western state defaults to "Here Comes The Sun."</li>
+ </ul>
 
-  <!-- HEATMAP EMBED -->
-  <div class="rg-embed">
-    <iframe src="https://aharris-jpg.github.io/beatles/heatmap.html" height="580" title="Beatles search probability heatmap by US state"></iframe>
-  </div>
+ <!-- HEATMAP EMBED -->
+ <div class="rg-embed">
+ <iframe src="https://aharris-jpg.github.io/beatles/heatmap.html" height="580" title="Beatles search probability heatmap by US state"></iframe>
+ </div>
 
-  <!-- CHART EMBED -->
-  <div class="rg-embed">
-    <iframe src="https://aharris-jpg.github.io/beatles/chart.html" height="820" title="Beatles search probability rankings all 50 states"></iframe>
-  </div>
+ <!-- CHART EMBED -->
+ <div class="rg-embed">
+ <iframe src="https://aharris-jpg.github.io/beatles/chart.html" height="820" title="Beatles search probability rankings all 50 states"></iframe>
+ </div>
 
-  <!-- TOP 10 -->
-  <h2>The Top 10 Most Beatles-Obsessed States in America</h2>
+ <!-- TOP 10 -->
+ <h2>The Top 10 Most Beatles-Obsessed States in America</h2>
 
-  <!-- #1 Vermont -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge">#1</div>
-      <h3>Vermont</h3>
-    </div>
-    <p class="rg-rank-details">New England &bull; 2.92% implied probability &bull; +3321</p>
-    <p>Vermont is the Beatles capital of America, and it is not particularly close.</p>
-    <p>Nearly 1 in every 34 music searches in the state lands on a Beatles keyword. No other state comes close to that concentration — and Vermont does it with a population of just 645,000.</p>
-    <p>The state skews older, more college-educated, and historically more engaged with classic rock and folk than contemporary pop. Those demographics align almost perfectly with the core Beatles listener profile.</p>
-    <p>American odds of +3321 are by far the tightest in the dataset. "Here Comes The Sun" leads the song rankings, consistent with the rest of New England.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>2.92%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 34.2</span></div>
-      <div class="rg-pill">American odds: <span>+3321</span></div>
-      <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
-      <div class="rg-pill">Rank: <span>#1 of 50</span></div>
-    </div>
-  </div>
+ <!-- #1 Vermont -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge">#1</div>
+ <h3>Vermont</h3>
+ </div>
+ <p class="rg-rank-details">New England &bull; 2.92% implied probability</p>
+ <p>Vermont is the Beatles capital of America, and it is not close.</p>
+ <p>Nearly 1 in every 34 music searches in the state is about The Beatles. Vermont pulls this off with a population of just 645,000 proof that size has nothing to do with it.</p>
+ <p>Older, highly educated, and deeply rooted in classic rock and folk culture. The Beatles fit here like a glove. "Here Comes The Sun" leads the song rankings.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>2.92%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 34.2</span></div>
+ <div class="rg-pill">American odds: <span>+3321</span></div>
+ <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
+ <div class="rg-pill">Rank: <span>#1 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- pic1 embed -->
-  <div class="rg-embed">
-    <iframe src="https://aharris-jpg.github.io/beatles/pic1.html" height="410" title="Beatles image 1"></iframe>
-  </div>
+ <!-- pic1 embed -->
+ <div class="rg-embed">
+ <iframe src="https://aharris-jpg.github.io/beatles/pic1.html" height="410" title="Beatles image 1"></iframe>
+ </div>
 
-  <!-- #2 New Hampshire -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge silver">#2</div>
-      <h3>New Hampshire</h3>
-    </div>
-    <p class="rg-rank-details">New England &bull; 2.86% implied probability &bull; +3393</p>
-    <p>New Hampshire trails Vermont by just 0.06 percentage points — the tightest margin anywhere in the top 10.</p>
-    <p>At 2.86%, almost 1 in every 35 music searches is Beatles-related. The state shares Vermont's demographic make-up: older, highly educated, and largely insulated from the streaming-era pop markets that dilute catalogue search share in bigger states.</p>
-    <p>American odds of +3393 make New Hampshire the second-best value in the country. "Here Comes The Sun" leads here as it does across all of New England.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>2.86%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 34.9</span></div>
-      <div class="rg-pill">American odds: <span>+3393</span></div>
-      <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
-      <div class="rg-pill">Rank: <span>#2 of 50</span></div>
-    </div>
-  </div>
+ <!-- #2 New Hampshire -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge silver">#2</div>
+ <h3>New Hampshire</h3>
+ </div>
+ <p class="rg-rank-details">New England &bull; 2.86% implied probability</p>
+ <p>New Hampshire trails Vermont by just 0.06 percentage points the closest margin anywhere in the top 10.</p>
+ <p>Almost 1 in every 35 music searches is Beatles-related. Older, highly educated, and insulated from the streaming-era pop churn that dilutes catalogue share in bigger states.</p>
+ <p>"Here Comes The Sun" leads here as it does across all of New England.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>2.86%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 34.9</span></div>
+ <div class="rg-pill">American odds: <span>+3393</span></div>
+ <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
+ <div class="rg-pill">Rank: <span>#2 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- #3 Maine -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge bronze">#3</div>
-      <h3>Maine</h3>
-    </div>
-    <p class="rg-rank-details">New England &bull; 2.51% implied probability &bull; +3877</p>
-    <p>Maine is the most rural state in the Northeast — and the third most Beatles-obsessed state in the country.</p>
-    <p>At 2.51%, roughly 1 in every 40 music searches lands on a Beatles keyword. With fewer competing entertainment markets and a cultural identity rooted in tradition, Beatles catalogue holds a share of total music search activity that no comparable state approaches.</p>
-    <p>American odds of +3877 represent strong value against the national average. "Here Comes The Sun" leads the song data.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>2.51%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 39.8</span></div>
-      <div class="rg-pill">American odds: <span>+3877</span></div>
-      <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
-      <div class="rg-pill">Rank: <span>#3 of 50</span></div>
-    </div>
-  </div>
+ <!-- #3 Maine -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge bronze">#3</div>
+ <h3>Maine</h3>
+ </div>
+ <p class="rg-rank-details">New England &bull; 2.51% implied probability</p>
+ <p>The most rural state in the Northeast and the third most Beatles-obsessed in the country.</p>
+ <p>Roughly 1 in every 40 music searches in Maine lands on a Beatles keyword. Fewer entertainment distractions, a culture rooted in tradition, and a listener base that has never needed an algorithm to tell it what to play.</p>
+ <p>"Here Comes The Sun" leads the song data.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>2.51%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 39.8</span></div>
+ <div class="rg-pill">American odds: <span>+3877</span></div>
+ <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
+ <div class="rg-pill">Rank: <span>#3 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- #4 Rhode Island -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge standard">#4</div>
-      <h3>Rhode Island</h3>
-    </div>
-    <p class="rg-rank-details">New England &bull; 1.91% implied probability &bull; +5123</p>
-    <p>Rhode Island completes a clean New England sweep of the top four. Small state, serious Beatles credibility.</p>
-    <p>At 1.91%, it sits below the top three but well ahead of the national average and every state outside the region. The drop from Maine to Rhode Island — roughly 0.6 points — is the sharpest single step-down in the entire top 10. Providence's large university population likely pulls the audience slightly younger, which may account for the dip.</p>
-    <p>American odds of +5123. "Here Comes The Sun" leads the state.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>1.91%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 52.2</span></div>
-      <div class="rg-pill">American odds: <span>+5123</span></div>
-      <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
-      <div class="rg-pill">Rank: <span>#4 of 50</span></div>
-    </div>
-  </div>
+ <!-- #4 Rhode Island -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge standard">#4</div>
+ <h3>Rhode Island</h3>
+ </div>
+ <p class="rg-rank-details">New England &bull; 1.91% implied probability</p>
+ <p>Rhode Island completes the New England sweep of the top four. Small state, serious Beatles credibility.</p>
+ <p>The drop from Maine to Rhode Island roughly 0.6 points is the sharpest step-down in the top 10. Providence's large university population likely pulls the audience slightly younger. Still well ahead of every state outside New England.</p>
+ <p>"Here Comes The Sun" leads the state.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>1.91%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 52.2</span></div>
+ <div class="rg-pill">American odds: <span>+5123</span></div>
+ <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
+ <div class="rg-pill">Rank: <span>#4 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- #5 Montana -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge standard">#5</div>
-      <h3>Montana</h3>
-    </div>
-    <p class="rg-rank-details">West &bull; 1.88% implied probability &bull; +5209</p>
-    <p>Montana is the first non-New England state in the rankings — and the biggest surprise in the top 10.</p>
-    <p>A state of just 1.1 million people is generating Beatles search concentration that California, Texas, and Florida cannot match. Low population density, an older demographic skew, and limited exposure to streaming-native pop markets all contribute. Montana still consumes music on its own terms.</p>
-    <p>American odds of +5209 represent solid value. "Here Comes The Sun" leads the data here as across most of the West.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>1.88%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 53.1</span></div>
-      <div class="rg-pill">American odds: <span>+5209</span></div>
-      <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
-      <div class="rg-pill">Rank: <span>#5 of 50</span></div>
-    </div>
-  </div>
+ <!-- #5 Montana -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge standard">#5</div>
+ <h3>Montana</h3>
+ </div>
+ <p class="rg-rank-details">West &bull; 1.88% implied probability</p>
+ <p>The first non-New England state and the biggest surprise in the top 10.</p>
+ <p>1.1 million people. Beatles search concentration that California, Texas, and Florida cannot match. Montana consumes music on its own terms, always has.</p>
+ <p>"Here Comes The Sun" leads the data, as it does across most of the West.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>1.88%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 53.1</span></div>
+ <div class="rg-pill">American odds: <span>+5209</span></div>
+ <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
+ <div class="rg-pill">Rank: <span>#5 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- pic2 embed -->
-  <div class="rg-embed">
-    <iframe src="https://aharris-jpg.github.io/beatles/pic2.html" height="410" title="Beatles image 2"></iframe>
-  </div>
+ <!-- pic2 embed -->
+ <div class="rg-embed">
+ <iframe src="https://aharris-jpg.github.io/beatles/pic2.html" height="410" title="Beatles image 2"></iframe>
+ </div>
 
-  <!-- #6 Idaho -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge standard">#6</div>
-      <h3>Idaho</h3>
-    </div>
-    <p class="rg-rank-details">West &bull; 1.83% implied probability &bull; +5372</p>
-    <p>Idaho sits just behind Montana at 1.83% — the second consecutive western state to crack the top 10 ahead of far more populated rivals.</p>
-    <p>Boise has drawn a significant transplant population from the Pacific Northwest and California over the past decade. Those demographics index strongly toward classic rock and legacy catalogue, pushing Idaho's Beatles signal well above what its native population base would suggest.</p>
-    <p>"Here Comes The Sun" leads the state. American odds of +5372.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>1.83%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 54.7</span></div>
-      <div class="rg-pill">American odds: <span>+5372</span></div>
-      <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
-      <div class="rg-pill">Rank: <span>#6 of 50</span></div>
-    </div>
-  </div>
+ <!-- #6 Idaho -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge standard">#6</div>
+ <h3>Idaho</h3>
+ </div>
+ <p class="rg-rank-details">West &bull; 1.83% implied probability</p>
+ <p>The second consecutive western state to crack the top 10 ahead of far more populated rivals.</p>
+ <p>Boise has drawn a wave of transplants from the Pacific Northwest and California over the past decade demographics that skew strongly toward classic rock and legacy catalogue. Idaho's Beatles signal punches well above its population.</p>
+ <p>"Here Comes The Sun" leads the state.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>1.83%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 54.7</span></div>
+ <div class="rg-pill">American odds: <span>+5372</span></div>
+ <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
+ <div class="rg-pill">Rank: <span>#6 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- #7 Wyoming -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge standard">#7</div>
-      <h3>Wyoming</h3>
-    </div>
-    <p class="rg-rank-details">West &bull; 1.80% implied probability &bull; +5444</p>
-    <p>Wyoming ranks seventh nationally despite being the least populous state in the country. With fewer than 590,000 residents, it generates Beatles search concentration that outranks 43 more populated states. That is a remarkable ratio.</p>
-    <p>Wyoming is also one of only two states where "Penny Lane" tops the song rankings rather than "Here Comes The Sun." That is a deeper catalogue pick — "Penny Lane" is not the track casual listeners reach for first. Wyoming's Beatles fans know their stuff.</p>
-    <p>American odds of +5444 are strong for a state that most people would not place in the top 10.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>1.80%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 55.4</span></div>
-      <div class="rg-pill">American odds: <span>+5444</span></div>
-      <div class="rg-pill">Top song: <span>Penny Lane</span></div>
-      <div class="rg-pill">Rank: <span>#7 of 50</span></div>
-    </div>
-  </div>
+ <!-- #7 Wyoming -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge standard">#7</div>
+ <h3>Wyoming</h3>
+ </div>
+ <p class="rg-rank-details">West &bull; 1.80% implied probability</p>
+ <p>The least populous state in the country and it outranks 43 more populated states. That is a remarkable number.</p>
+ <p>Wyoming is one of only two states where "Penny Lane" tops the rankings over "Here Comes The Sun." That is a deeper catalogue pick. Wyoming's Beatles fans know their stuff.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>1.80%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 55.4</span></div>
+ <div class="rg-pill">American odds: <span>+5444</span></div>
+ <div class="rg-pill">Top song: <span>Penny Lane</span></div>
+ <div class="rg-pill">Rank: <span>#7 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- #8 Wisconsin -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge standard">#8</div>
-      <h3>Wisconsin</h3>
-    </div>
-    <p class="rg-rank-details">Midwest &bull; 1.78% implied probability &bull; +5524</p>
-    <p>Wisconsin is the top-ranked Midwest state and the only one in the top 10. At 1.78%, it sits above every other state in a region that generally tracks at or below the national average.</p>
-    <p>Wisconsin is one of only four states nationally where "Let It Be" tops "Here Comes The Sun." That is a more contemplative, gospel-inflected pick — a different emotional register to the optimism that drives the national default. Wisconsin knows how it feels.</p>
-    <p>American odds of +5524 make it the best value in the Midwest by a significant margin.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>1.78%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 56.2</span></div>
-      <div class="rg-pill">American odds: <span>+5524</span></div>
-      <div class="rg-pill">Top song: <span>Let It Be</span></div>
-      <div class="rg-pill">Rank: <span>#8 of 50</span></div>
-    </div>
-  </div>
+ <!-- #8 Wisconsin -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge standard">#8</div>
+ <h3>Wisconsin</h3>
+ </div>
+ <p class="rg-rank-details">Midwest &bull; 1.78% implied probability</p>
+ <p>The top-ranked Midwest state and the only one in the top 10. It sits above every other state in a region that generally tracks at or below the national average.</p>
+ <p>One of only four states where "Let It Be" tops "Here Comes The Sun." More contemplative, more gospel-inflected a different emotional register to the national default. Wisconsin knows how it feels.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>1.78%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 56.2</span></div>
+ <div class="rg-pill">American odds: <span>+5524</span></div>
+ <div class="rg-pill">Top song: <span>Let It Be</span></div>
+ <div class="rg-pill">Rank: <span>#8 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- #9 North Dakota -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge standard">#9</div>
-      <h3>North Dakota</h3>
-    </div>
-    <p class="rg-rank-details">Midwest &bull; 1.74% implied probability &bull; +5634</p>
-    <p>North Dakota gets two Midwest states into the top 10, with a population of just 800,000. At 1.74%, it outranks Illinois, Michigan, Ohio, and every other Midwest state except Wisconsin.</p>
-    <p>Fargo and Bismarck serve as regional hubs for a geographically isolated population with fewer competing entertainment markets. Classic catalogue holds a larger share of total music search activity as a result. North Dakota also has the highest concentration of Scandinavian heritage of any US state — a demographic that has historically indexed strongly toward British Invasion music.</p>
-    <p>American odds of +5634. "Here Comes The Sun" leads the state.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>1.74%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 57.3</span></div>
-      <div class="rg-pill">American odds: <span>+5634</span></div>
-      <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
-      <div class="rg-pill">Rank: <span>#9 of 50</span></div>
-    </div>
-  </div>
+ <!-- #9 North Dakota -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge standard">#9</div>
+ <h3>North Dakota</h3>
+ </div>
+ <p class="rg-rank-details">Midwest &bull; 1.74% implied probability</p>
+ <p>800,000 people. Outranks Illinois, Michigan, Ohio, and every other Midwest state except Wisconsin.</p>
+ <p>Fargo and Bismarck serve isolated communities with fewer competing entertainment markets. Classic catalogue fills that space. North Dakota also has the highest concentration of Scandinavian heritage of any US state a demographic with a long history of affection for British Invasion music.</p>
+ <p>"Here Comes The Sun" leads the state.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>1.74%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 57.3</span></div>
+ <div class="rg-pill">American odds: <span>+5634</span></div>
+ <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
+ <div class="rg-pill">Rank: <span>#9 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- #10 Utah -->
-  <div class="rg-rank-entry">
-    <div class="rg-rank-header">
-      <div class="rg-rank-badge standard">#10</div>
-      <h3>Utah</h3>
-    </div>
-    <p class="rg-rank-details">West &bull; 1.72% implied probability &bull; +5705</p>
-    <p>Utah rounds out the top 10 as the third western state in the rankings. Salt Lake City has developed a strong live music culture over the past 15 years, and Utah's relatively younger median age compared to the rest of the top 10 suggests this is not purely a legacy listener story.</p>
-    <p>Strong community structures and a culture built around shared cultural touchstones — rather than commercial entertainment venues — appear to channel music engagement toward established, universally recognized catalogue.</p>
-    <p>"Here Comes The Sun" leads the state. American odds of +5705 close out the top 10.</p>
-    <div class="rg-pills">
-      <div class="rg-pill">Probability: <span>1.72%</span></div>
-      <div class="rg-pill">Fractional odds: <span>1 in 58.1</span></div>
-      <div class="rg-pill">American odds: <span>+5705</span></div>
-      <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
-      <div class="rg-pill">Rank: <span>#10 of 50</span></div>
-    </div>
-  </div>
+ <!-- #10 Utah -->
+ <div class="rg-rank-entry">
+ <div class="rg-rank-header">
+ <div class="rg-rank-badge standard">#10</div>
+ <h3>Utah</h3>
+ </div>
+ <p class="rg-rank-details">West &bull; 1.72% implied probability</p>
+ <p>The third western state in the top 10, and the youngest-skewing of the group. Salt Lake City has built a strong live music culture over the past 15 years this is not purely a legacy listener story.</p>
+ <p>A culture built around shared touchstones rather than commercial entertainment venues channels music engagement toward universally loved catalogue. The Beatles qualify on every count.</p>
+ <p>"Here Comes The Sun" leads the state.</p>
+ <div class="rg-pills">
+ <div class="rg-pill">Probability: <span>1.72%</span></div>
+ <div class="rg-pill">Fractional odds: <span>1 in 58.1</span></div>
+ <div class="rg-pill">American odds: <span>+5705</span></div>
+ <div class="rg-pill">Top song: <span>Here Comes The Sun</span></div>
+ <div class="rg-pill">Rank: <span>#10 of 50</span></div>
+ </div>
+ </div>
 
-  <!-- pic3 embed -->
-  <div class="rg-embed">
-    <iframe src="https://aharris-jpg.github.io/beatles/pic3.html" height="410" title="Beatles image 3"></iframe>
-  </div>
+ <!-- pic3 embed -->
+ <div class="rg-embed">
+ <iframe src="https://aharris-jpg.github.io/beatles/pic3.html" height="410" title="Beatles image 3"></iframe>
+ </div>
 
-  <!-- CALLOUT -->
-  <h2>The Song Map: Where Beatles Classics Still Divide America</h2>
+ <!-- CALLOUT -->
+ <h2>The Song Map: Where Beatles Classics Still Divide America</h2>
 
-  <p>"Here Comes The Sun" wins 43 of 50 states. But 7 states break the pattern — and the splits reveal something about regional identity that the headline rankings alone cannot show.</p>
+ <p>"Here Comes The Sun" wins 43 of 50 states. But 7 states break the pattern and the splits reveal something about regional identity that the headline rankings alone cannot show.</p>
 
-  <p>"Let It Be" clusters in the Deep South and Hawaii. Alabama, Louisiana, Wisconsin, and Hawaii all return "Let It Be" as their top Beatles search. Three of those four states rank below the national average on overall Beatles engagement, which makes the song choice more telling. The listeners who do search are reaching for something specific — something warmer, more gospel-inflected, more direct.</p>
+ <p>"Let It Be" clusters in the Deep South and Hawaii. Alabama, Louisiana, Wisconsin, and Hawaii all return "Let It Be" as their top Beatles search. Three of those four states rank below the national average on overall Beatles engagement, which makes the song choice more telling. The listeners who do search are reaching for something specific something warmer, more gospel-inflected, more direct.</p>
 
-  <p>"Penny Lane" surfaces in Virginia and Wyoming. Both states trend toward deeper catalogue knowledge. "Penny Lane" is not the track casual fans reach for first — you have to know your Beatles to land there over "Here Comes The Sun."</p>
+ <p>"Penny Lane" surfaces in Virginia and Wyoming. Both states trend toward deeper catalogue knowledge. "Penny Lane" is not the track casual fans reach for first you have to know your Beatles to land there over "Here Comes The Sun."</p>
 
-  <p>Nevada stands alone as the only western state where "Hey Jude" tops the chart. Las Vegas's live entertainment industry almost certainly drives that signal. "Hey Jude" is an anthem built for large rooms and singalongs — Nevada's tourism-driven search behavior reflects exactly that.</p>
+ <p>Nevada stands alone as the only western state where "Hey Jude" tops the chart. Las Vegas's live entertainment industry almost certainly drives that signal. "Hey Jude" is an anthem built for large rooms and singalongs Nevada's tourism-driven search behavior reflects exactly that.</p>
 
-  <div class="rg-table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>State</th>
-          <th>Top Song</th>
-          <th>National Rank</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Nevada</td><td>Hey Jude</td><td>#42</td></tr>
-        <tr><td>Virginia</td><td>Penny Lane</td><td>#25</td></tr>
-        <tr><td>Wyoming</td><td>Penny Lane</td><td>#7</td></tr>
-        <tr><td>Wisconsin</td><td>Let It Be</td><td>#8</td></tr>
-        <tr><td>Hawaii</td><td>Let It Be</td><td>#35</td></tr>
-        <tr><td>Alabama</td><td>Let It Be</td><td>#47</td></tr>
-        <tr><td>Louisiana</td><td>Let It Be</td><td>#49</td></tr>
-      </tbody>
-    </table>
-  </div>
+ <div class="rg-table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>State</th>
+ <th>Top Song</th>
+ <th>National Rank</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr><td>Nevada</td><td>Hey Jude</td><td>#42</td></tr>
+ <tr><td>Virginia</td><td>Penny Lane</td><td>#25</td></tr>
+ <tr><td>Wyoming</td><td>Penny Lane</td><td>#7</td></tr>
+ <tr><td>Wisconsin</td><td>Let It Be</td><td>#8</td></tr>
+ <tr><td>Hawaii</td><td>Let It Be</td><td>#35</td></tr>
+ <tr><td>Alabama</td><td>Let It Be</td><td>#47</td></tr>
+ <tr><td>Louisiana</td><td>Let It Be</td><td>#49</td></tr>
+ </tbody>
+ </table>
+ </div>
 
-  <p>The remaining 43 states default to "Here Comes The Sun." That consistency is its own story. A 1969 George Harrison track is the default Beatles entry point for nine out of ten states in America — ahead of "Hey Jude," "Let It Be," "Yesterday," and "Come Together" in every single one of them.</p>
+ <p>The remaining 43 states default to "Here Comes The Sun." That consistency is its own story. A 1969 George Harrison track is the default Beatles entry point for nine out of ten states in America ahead of "Hey Jude," "Let It Be," "Yesterday," and "Come Together" in every single one of them.</p>
 
-  <!-- EXPERT COMMENT -->
-  <h2>Expert Comment</h2>
+ <!-- EXPERT COMMENT -->
+ <h2>Expert Comment</h2>
 
-  <div class="rg-expert">
-    <p>"The New England sweep of the top four is the result that deserves the most attention. Vermont, New Hampshire, Maine, and Rhode Island are small, relatively isolated states with older demographic profiles and limited exposure to the streaming-native pop markets that have eroded classic catalogue's search share elsewhere. The Beatles concentration there is not a coincidence."</p>
+ <div class="rg-expert">
+ <p>"People are still actively searching for the Beatles by name, by song, by lyric. That is not passive nostalgia. That is active fandom. The data shows it is strongest in markets that have resisted algorithmic music discovery: smaller states, older audiences, communities where tradition still drives listening habits."</p>
 
-    <p>"Montana and Wyoming in the top 10 tell the same story from a different part of the map. Low population density, fewer competing entertainment inputs, and a transplant population from the Pacific Northwest that carries strong classic rock preferences. These are not states where the Beatles are nostalgia — they are states where the Beatles are still part of the active music diet."</p>
+ <p>"Sixty years in, the gap between the most engaged states and the least is still 4.6 times. That is not a band in decline. That is a band with a permanently passionate fanbase."</p>
+ <p class="rg-expert-attr"> RotoGrinders Analyst</p>
+ </div>
 
-    <p>"The 'Here Comes The Sun' dominance across 43 states is the kind of finding that belongs in a music licensing conversation. One George Harrison track from 1969 is doing the work of gateway discovery for the entire catalogue across almost the whole country. The seven outlier states — especially Nevada with 'Hey Jude' — show that live entertainment markets create very different search behavior to residential music consumption."</p>
+ <!-- CONCLUSION -->
+ <h2>The Needle Still Drops Where It Always Has</h2>
 
-    <p>"The Vermont-to-Mississippi gap of 4.6 times is the number I would put in front of any brand looking at Beatles catalogue value by market. That is not a small regional variation. It is a structural difference in how these states consume music — and it has held steady across the full 12 months of data."</p>
-    <p class="rg-expert-attr">— RotoGrinders Beatles Day Analyst</p>
-  </div>
+ <p>Vermont at 2.92%. Mississippi at 0.64%. A 4.6 times gap and both states generating real Beatles search volume six decades after the band's US debut.</p>
 
-  <!-- CONCLUSION -->
-  <h2>The Needle Still Drops Where It Always Has</h2>
+ <p>New England holds all four top spots. Three western states with populations under 2 million crack the top 10 ahead of California, Texas, and Florida. The biggest markets are not the most obsessed ones.</p>
 
-  <p>Vermont at 2.92% and Mississippi at 0.64% are 4.6 times apart in implied probability. Both are generating real Beatles search volume 60 years after the band's US debut.</p>
+ <p>Streaming, algorithms, and 60 years of new music have not flattened the map. The states that love the Beatles love them as much as they ever did. The gap between first and last is not closing.</p>
 
-  <p>The top of the rankings belongs to small, geographically isolated states that have resisted the churn of streaming-era music discovery. New England holds all four top spots. Three western states with populations under 2 million crack the top 10 ahead of California, Texas, and Florida.</p>
+ <p>Wherever you are in the rankings Vermont at 1 in 34, or Mississippi at 1 in 156 there is a Beatles song playing somewhere near you right now.</p>
 
-  <p>For media buyers and catalogue placement budgets, the state-by-state spread is actionable. The states with the tightest odds are not the biggest markets — they are the most concentrated ones. Vermont at +3321 is a very different audience to New York at +7164, even though New York generates more raw search volume in absolute terms.</p>
+ <p class="rg-closer"><em>Happy Global Beatles Day. The music never really stopped.</em></p>
 
-  <p>Six decades of streaming, algorithm-driven playlists, and catalogue competition have not flattened the map. The data covers June 2025 through May 2026 and the pattern holds. Small, older, less algorithmically penetrated markets punch well above their weight — and the gap is not closing.</p>
-
-  <p class="rg-closer"><em>The Beatles are still playing in Vermont. They just never really stopped.</em></p>
-
-  <!-- INTERNAL LINKS PLACEHOLDER -->
-  <div class="rg-internal-links">
-    <p>Exploring music and entertainment markets? Check out <a href="#">[Link 1 anchor text]</a> and <a href="#">[Link 2 anchor text]</a> before you go.</p>
-  </div>
-
-  <!-- METHODOLOGY -->
-  <div class="rg-methodology">
-    <p class="rg-meth-title">Methodology</p>
-    <p><strong>What we measured:</strong> The implied probability of hearing a Beatles song in each US state, defined as the share of music-related Google searches that are Beatles-specific. Expressed as an implied probability, fractional odds, and American odds.</p>
-    <p><strong>Source and date range:</strong> Google Keyword Planner, average monthly search volumes, June 2025 through May 2026. Google Keyword Planner was used rather than Google Trends because Trends returns only a relative index (0-100), which cannot produce a meaningful ratio. Keyword Planner returns actual search volumes that divide cleanly against each other.</p>
-    <p><strong>Keywords:</strong> 28 Beatles-specific keywords across four categories (artist, song, lyrics, playlist) were divided by the sum of 8 broad music benchmark keywords (music, songs, lyrics, playlist, albums, music videos, song lyrics, new songs). Four song titles — Yesterday, Something, Help, and Blackbird — were qualified with "Beatles" appended to avoid capturing unrelated searches; their volumes are conservative lower-bound estimates. One data quality issue was identified and corrected: the initial West Virginia export contained Washington state data and was replaced with a corrected pull.</p>
-    <p><strong>Formula:</strong> Implied probability = sum of Beatles keyword volumes divided by sum of benchmark keyword volumes, multiplied by 100. Fractional odds = 1 divided by that share. American odds = (1 divided by share, minus 1) multiplied by 100.</p>
-    <p><strong>Exclusions:</strong> The District of Columbia was excluded by design. All 50 US states are included. Keyword Planner volumes are rounded averages; small-state figures are rounded to the nearest 10 or 100, standard across all public keyword tools. Population source: US Census Bureau state population estimates, January 7, 2025. Data extracted June 2026.</p>
-  </div>
+<!-- METHODOLOGY -->
+ <div class="rg-methodology">
+ <p class="rg-meth-title">Methodology</p>
+ <p><strong>What we measured:</strong> The implied probability of hearing a Beatles song in each US state, defined as the share of music-related Google searches that are Beatles-specific. Expressed as an implied probability, fractional odds, and American odds.</p>
+ <p><strong>Source and date range:</strong> Google Keyword Planner, average monthly search volumes, June 2025 through May 2026. Google Keyword Planner was used rather than Google Trends because Trends returns only a relative index (0-100), which cannot produce a meaningful ratio. Keyword Planner returns actual search volumes that divide cleanly against each other.</p>
+ <p><strong>Keywords:</strong> 28 Beatles-specific keywords across four categories (artist, song, lyrics, playlist) were divided by the sum of 8 broad music benchmark keywords (music, songs, lyrics, playlist, albums, music videos, song lyrics, new songs). Four song titles Yesterday, Something, Help, and Blackbird were qualified with "Beatles" appended to avoid capturing unrelated searches; their volumes are conservative lower-bound estimates. One data quality issue was identified and corrected: the initial West Virginia export contained Washington state data and was replaced with a corrected pull.</p>
+ <p><strong>Formula:</strong> Implied probability = sum of Beatles keyword volumes divided by sum of benchmark keyword volumes, multiplied by 100. Fractional odds = 1 divided by that share. American odds = (1 divided by share, minus 1) multiplied by 100.</p>
+ <p><strong>Exclusions:</strong> The District of Columbia was excluded by design. All 50 US states are included. Keyword Planner volumes are rounded averages; small-state figures are rounded to the nearest 10 or 100, standard across all public keyword tools. Population source: US Census Bureau state population estimates, January 7, 2025. Data extracted June 2026.</p>
+ </div>
 
 </div><!-- end .rg-body -->
 
 <!-- SOURCES -->
 <div class="rg-body rg-sources">
-  <h2 style="font-size:18px; margin:32px 0 12px; padding-left:14px; border-left:4px solid #F5A623; color:#111;">Sources</h2>
-  <ul>
-    <li><strong>Google Keyword Planner:</strong> <a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank">Search volume data, June 2025 – May 2026</a></li>
-    <li><strong>US Census Bureau:</strong> <a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html" target="_blank">State population estimates, January 2025</a></li>
-    <li><strong>Unsplash:</strong> <a href="https://unsplash.com" target="_blank">Licensed photography used under Unsplash license</a></li>
-  </ul>
+ <h2 style="font-size:18px; margin:32px 0 12px; padding-left:14px; border-left:4px solid #F5A623; color:#111;">Sources</h2>
+ <ul>
+ <li><strong>Google Keyword Planner:</strong> Search volume data, June 2025 – May 2026</li>
+ <li><strong>US Census Bureau:</strong> State population estimates, January 2025</li>
+ <li><strong>Unsplash:</strong> Licensed photography used under Unsplash license</li>
+ </ul>
 </div>
 
 </div><!-- end .rg-beatles-article -->
