@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beatles Odds by State — RotoGrinders</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+  }
+
+  .rg-chart-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+  }
+
+  /* Header */
+  .rg-chart-header {
+    background: #ffffff;
+    border-top: 4px solid #F5A623;
+    padding: 24px 28px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rg-chart-header::after {
+    content: '';
+    position: absolute;
+    top: 4px; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(245,166,35,0.5), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .rg-chart-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #F5A623;
+    margin-bottom: 8px;
+  }
+
+  .rg-chart-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .rg-chart-sub {
+    font-size: 12px;
+    color: #888888;
+  }
+
+  /* Filter tabs */
+  .rg-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 16px 28px 4px;
+    flex-wrap: wrap;
+  }
+
+  .rg-tab {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1.5px solid #e0dbd0;
+    background: #ffffff;
+    color: #888888;
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.03em;
+  }
+
+  .rg-tab:hover { border-color: #F5A623; color: #c47f00; }
+  .rg-tab.active { background: #F5A623; border-color: #F5A623; color: #ffffff; }
+
+  /* Chart area */
+  .rg-chart-inner {
+    padding: 12px 28px 8px;
+  }
+
+  .rg-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+    min-height: 28px;
+  }
+
+  .rg-bar-rank {
+    font-size: 11px;
+    font-weight: 700;
+    color: #aaaaaa;
+    width: 24px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .rg-bar-label {
+    font-size: 12px;
+    color: #333333;
+    width: 110px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rg-bar-track {
+    flex: 1;
+    height: 22px;
+    background: #f5f3ee;
+    border-radius: 3px;
+    position: relative;
+    overflow: visible;
+    margin-right: 80px;
+  }
+
+  .rg-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    position: relative;
+    transition: width 0.4s ease;
+  }
+
+  .rg-bar-val {
+    position: absolute;
+    right: -76px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    font-weight: 700;
+    color: #555555;
+    white-space: nowrap;
+  }
+
+  /* Pagination */
+  .rg-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px 16px;
+    border-top: 1px solid #eeebe3;
+    margin-top: 8px;
+  }
+
+  .rg-page-btn {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1.5px solid #e0dbd0;
+    background: #ffffff;
+    color: #555555;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .rg-page-btn:hover:not(:disabled) { border-color: #F5A623; color: #c47f00; }
+  .rg-page-btn:disabled { opacity: 0.35; cursor: default; }
+
+  .rg-page-info {
+    font-size: 12px;
+    color: #aaaaaa;
+  }
+
+  /* Footer */
+  .rg-chart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 28px 20px;
+    border-top: 1px solid #eeebe3;
+  }
+
+  .rg-chart-footer-left { font-size: 11px; color: #aaaaaa; }
+  .rg-chart-logo { font-size: 13px; font-weight: 800; color: #F5A623; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+<div class="rg-chart-wrap">
+
+  <div class="rg-chart-header">
+    <p class="rg-chart-eyebrow">RotoGrinders &bull; Global Beatles Day 2026</p>
+    <p class="rg-chart-title">Which State Has the Best Chance of Hearing a Beatles Song?</p>
+    <p class="rg-chart-sub">Ranked by the share of music searches that are Beatles-related &bull; June 2025 – May 2026</p>
+  </div>
+
+  <div class="rg-tabs">
+    <button class="rg-tab active" onclick="setFilter('all')">All States</button>
+    <button class="rg-tab" onclick="setFilter('Northeast')">Northeast</button>
+    <button class="rg-tab" onclick="setFilter('Midwest')">Midwest</button>
+    <button class="rg-tab" onclick="setFilter('South')">South</button>
+    <button class="rg-tab" onclick="setFilter('West')">West</button>
+  </div>
+
+  <div class="rg-chart-inner" id="chart-inner"></div>
+
+  <div class="rg-pagination">
+    <button class="rg-page-btn" id="btn-prev" onclick="changePage(-1)">&#8592; Previous 10</button>
+    <span class="rg-page-info" id="page-info"></span>
+    <button class="rg-page-btn" id="btn-next" onclick="changePage(1)">Next 10 &#8594;</button>
+  </div>
+
+  <div class="rg-chart-footer">
+    <span class="rg-chart-footer-left">Source: Google Keyword Planner &bull; Data: June 2025 – May 2026</span>
+    <span class="rg-chart-logo">RotoGrinders</span>
+  </div>
+
+</div>
+
+<script>
+const ALL_DATA = [
+  { rank:1,  state:"Vermont",        prob:2.9233, frac:"1 in 34.2",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:2,  state:"New Hampshire",  prob:2.8625, frac:"1 in 34.9",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:3,  state:"Maine",          prob:2.5143, frac:"1 in 39.8",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:4,  state:"Rhode Island",   prob:1.9146, frac:"1 in 52.2",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:5,  state:"Montana",        prob:1.8837, frac:"1 in 53.1",  song:"Here Comes The Sun", region:"West"      },
+  { rank:6,  state:"Idaho",          prob:1.8274, frac:"1 in 54.7",  song:"Here Comes The Sun", region:"West"      },
+  { rank:7,  state:"Wyoming",        prob:1.8038, frac:"1 in 55.4",  song:"Penny Lane",         region:"West"      },
+  { rank:8,  state:"Wisconsin",      prob:1.7781, frac:"1 in 56.2",  song:"Let It Be",          region:"Midwest"   },
+  { rank:9,  state:"North Dakota",   prob:1.7441, frac:"1 in 57.3",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:10, state:"Utah",           prob:1.7226, frac:"1 in 58.1",  song:"Here Comes The Sun", region:"West"      },
+  { rank:11, state:"Oregon",         prob:1.5981, frac:"1 in 62.6",  song:"Here Comes The Sun", region:"West"      },
+  { rank:12, state:"Massachusetts",  prob:1.5855, frac:"1 in 63.1",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:13, state:"New Jersey",     prob:1.5012, frac:"1 in 66.6",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:14, state:"Washington",     prob:1.4843, frac:"1 in 67.4",  song:"Here Comes The Sun", region:"West"      },
+  { rank:15, state:"Alaska",         prob:1.4454, frac:"1 in 69.2",  song:"Here Comes The Sun", region:"West"      },
+  { rank:16, state:"South Dakota",   prob:1.4110, frac:"1 in 70.9",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:17, state:"Colorado",       prob:1.4023, frac:"1 in 71.3",  song:"Here Comes The Sun", region:"West"      },
+  { rank:18, state:"New York",       prob:1.3766, frac:"1 in 72.6",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:19, state:"Nebraska",       prob:1.3705, frac:"1 in 73.0",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:20, state:"Pennsylvania",   prob:1.3648, frac:"1 in 73.3",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:21, state:"Connecticut",    prob:1.3440, frac:"1 in 74.4",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:22, state:"Iowa",           prob:1.3106, frac:"1 in 76.3",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:23, state:"Minnesota",      prob:1.2991, frac:"1 in 77.0",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:24, state:"Delaware",       prob:1.2848, frac:"1 in 77.8",  song:"Here Comes The Sun", region:"Northeast" },
+  { rank:25, state:"Virginia",       prob:1.2664, frac:"1 in 79.0",  song:"Penny Lane",         region:"South"     },
+  { rank:26, state:"Missouri",       prob:1.2511, frac:"1 in 79.9",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:27, state:"California",     prob:1.2297, frac:"1 in 81.3",  song:"Here Comes The Sun", region:"West"      },
+  { rank:28, state:"Illinois",       prob:1.2062, frac:"1 in 82.9",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:29, state:"Kansas",         prob:1.2057, frac:"1 in 82.9",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:30, state:"Michigan",       prob:1.1898, frac:"1 in 84.0",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:31, state:"Indiana",        prob:1.1576, frac:"1 in 86.4",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:32, state:"New Mexico",     prob:1.1531, frac:"1 in 86.7",  song:"Here Comes The Sun", region:"West"      },
+  { rank:33, state:"Ohio",           prob:1.1518, frac:"1 in 86.8",  song:"Here Comes The Sun", region:"Midwest"   },
+  { rank:34, state:"Florida",        prob:1.1464, frac:"1 in 87.2",  song:"Here Comes The Sun", region:"South"     },
+  { rank:35, state:"Hawaii",         prob:1.1184, frac:"1 in 89.4",  song:"Let It Be",          region:"West"      },
+  { rank:36, state:"West Virginia",  prob:1.0828, frac:"1 in 92.4",  song:"Here Comes The Sun", region:"South"     },
+  { rank:37, state:"Arizona",        prob:1.0781, frac:"1 in 92.8",  song:"Here Comes The Sun", region:"West"      },
+  { rank:38, state:"South Carolina", prob:1.0501, frac:"1 in 95.2",  song:"Here Comes The Sun", region:"South"     },
+  { rank:39, state:"Kentucky",       prob:1.0279, frac:"1 in 97.3",  song:"Here Comes The Sun", region:"South"     },
+  { rank:40, state:"Maryland",       prob:1.0108, frac:"1 in 98.9",  song:"Here Comes The Sun", region:"South"     },
+  { rank:41, state:"Oklahoma",       prob:0.9957, frac:"1 in 100.4", song:"Here Comes The Sun", region:"South"     },
+  { rank:42, state:"Nevada",         prob:0.9857, frac:"1 in 101.5", song:"Hey Jude",           region:"West"      },
+  { rank:43, state:"North Carolina", prob:0.9536, frac:"1 in 104.9", song:"Here Comes The Sun", region:"South"     },
+  { rank:44, state:"Tennessee",      prob:0.9501, frac:"1 in 105.3", song:"Here Comes The Sun", region:"South"     },
+  { rank:45, state:"Texas",          prob:0.9174, frac:"1 in 109.0", song:"Here Comes The Sun", region:"South"     },
+  { rank:46, state:"Arkansas",       prob:0.8746, frac:"1 in 114.3", song:"Here Comes The Sun", region:"South"     },
+  { rank:47, state:"Alabama",        prob:0.8022, frac:"1 in 124.7", song:"Let It Be",          region:"South"     },
+  { rank:48, state:"Georgia",        prob:0.7499, frac:"1 in 133.4", song:"Here Comes The Sun", region:"South"     },
+  { rank:49, state:"Louisiana",      prob:0.7186, frac:"1 in 139.2", song:"Let It Be",          region:"South"     },
+  { rank:50, state:"Mississippi",    prob:0.6394, frac:"1 in 156.4", song:"Here Comes The Sun", region:"South"     }
+];
+
+const PER_PAGE = 10;
+let currentPage = 0;
+let currentFilter = "all";
+let filteredData = [...ALL_DATA];
+
+function setFilter(region) {
+  currentFilter = region;
+  currentPage = 0;
+  filteredData = region === "all"
+    ? [...ALL_DATA]
+    : ALL_DATA.filter(d => d.region === region);
+  document.querySelectorAll(".rg-tab").forEach(t => t.classList.remove("active"));
+  event.target.classList.add("active");
+  render();
+}
+
+function changePage(dir) {
+  const maxPage = Math.ceil(filteredData.length / PER_PAGE) - 1;
+  currentPage = Math.max(0, Math.min(maxPage, currentPage + dir));
+  render();
+}
+
+function barColor(rank, total) {
+  // Darker for top ranks, lighter for bottom — single hue ramp
+  const t = 1 - (rank - 1) / (total - 1);
+  const dark = [30, 36, 51];   // #1E2433
+  const mid  = [245, 166, 35]; // #F5A623
+  const r = Math.round(dark[0] + (mid[0] - dark[0]) * t);
+  const g = Math.round(dark[1] + (mid[1] - dark[1]) * t);
+  const b = Math.round(dark[2] + (mid[2] - dark[2]) * t);
+  return `rgb(${r},${g},${b})`;
+}
+
+function render() {
+  const inner = document.getElementById("chart-inner");
+  const total = filteredData.length;
+  const maxPage = Math.ceil(total / PER_PAGE) - 1;
+  const start = currentPage * PER_PAGE;
+  const slice = filteredData.slice(start, start + PER_PAGE);
+  const maxProb = ALL_DATA[0].prob; // always Vermont
+
+  let html = "";
+  slice.forEach((d, i) => {
+    const pct = (d.prob / maxProb) * 100;
+    const color = barColor(d.rank, 50);
+    html += `
+      <div class="rg-bar-row">
+        <div class="rg-bar-rank">#${d.rank}</div>
+        <div class="rg-bar-label">${d.state}</div>
+        <div class="rg-bar-track">
+          <div class="rg-bar-fill" style="width:${pct}%; background:${color};">
+          </div>
+          <span class="rg-bar-val">${d.prob.toFixed(2)}% &nbsp;<span style="color:#aaa;font-weight:400;">${d.frac}</span></span>
+        </div>
+      </div>`;
+  });
+
+  inner.innerHTML = html;
+
+  document.getElementById("page-info").textContent =
+    `Showing ${start + 1}–${Math.min(start + PER_PAGE, total)} of ${total}`;
+  document.getElementById("btn-prev").disabled = currentPage === 0;
+  document.getElementById("btn-next").disabled = currentPage >= maxPage;
+}
+
+render();
+</script>
+</body>
+</html>
