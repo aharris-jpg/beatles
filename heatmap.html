@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odds of Hearing a Beatles Song — by State</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+  }
+
+  .rg-hm-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+  }
+
+  /* Header */
+  .rg-hm-header {
+    background: #ffffff;
+    border-top: 4px solid #F5A623;
+    padding: 24px 28px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rg-hm-header::after {
+    content: '';
+    position: absolute;
+    top: 4px; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(245,166,35,0.5), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .rg-hm-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #F5A623;
+    margin-bottom: 8px;
+  }
+
+  .rg-hm-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .rg-hm-sub {
+    font-size: 13px;
+    color: #888888;
+  }
+
+  /* Map container */
+  .rg-hm-map {
+    padding: 8px 20px 0;
+  }
+
+  #map-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Tooltip */
+  .rg-hm-tooltip {
+    position: absolute;
+    background: #1E2433;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 10;
+    min-width: 170px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .rg-hm-tooltip .tt-state {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #F5A623;
+  }
+
+  .rg-hm-tooltip .tt-prob {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+  }
+
+  .rg-hm-tooltip .tt-frac {
+    font-size: 12px;
+    color: #aaaaaa;
+    margin-bottom: 4px;
+  }
+
+  .rg-hm-tooltip .tt-song {
+    font-size: 12px;
+    color: #cccccc;
+    font-style: italic;
+  }
+
+  /* Legend */
+  .rg-hm-legend {
+    padding: 16px 28px 20px;
+  }
+
+  .rg-hm-legend-label {
+    font-size: 11px;
+    color: #888888;
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .rg-hm-legend-bar {
+    width: 100%;
+    height: 12px;
+    border-radius: 6px;
+    background: linear-gradient(to right, #fef3dc, #f5c842, #e8890a, #c45c00, #7a2800);
+    margin-bottom: 6px;
+  }
+
+  .rg-hm-legend-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #aaaaaa;
+  }
+
+  /* Footer */
+  .rg-hm-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px 20px;
+    border-top: 1px solid #eeebe3;
+    margin-top: 4px;
+  }
+
+  .rg-hm-footer-left {
+    font-size: 11px;
+    color: #aaaaaa;
+  }
+
+  .rg-hm-logo {
+    font-size: 13px;
+    font-weight: 800;
+    color: #F5A623;
+    letter-spacing: 0.04em;
+  }
+
+  .state-path {
+    stroke: #ffffff;
+    stroke-width: 1.5;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .state-path:hover { opacity: 0.8; }
+</style>
+</head>
+<body>
+<div class="rg-hm-wrap">
+
+  <div class="rg-hm-header">
+    <p class="rg-hm-eyebrow">RotoGrinders &bull; Global Beatles Day 2026</p>
+    <p class="rg-hm-title">Your Chances of Hearing a Beatles Song — by State</p>
+    <p class="rg-hm-sub">How likely is any music search in your state to be about The Beatles? &bull; June 2025 – May 2026</p>
+  </div>
+
+  <div class="rg-hm-map">
+    <svg id="map-svg" viewBox="0 0 960 600"></svg>
+  </div>
+
+  <div class="rg-hm-legend">
+    <p class="rg-hm-legend-label">Chances of hearing a Beatles song</p>
+    <div class="rg-hm-legend-bar"></div>
+    <div class="rg-hm-legend-ticks">
+      <span>0.6% (lowest)</span>
+      <span>1.1%</span>
+      <span>1.6%</span>
+      <span>2.1%</span>
+      <span>2.9% (highest)</span>
+    </div>
+  </div>
+
+  <div class="rg-hm-footer">
+    <span class="rg-hm-footer-left">Source: Google Keyword Planner &bull; Data: June 2025 – May 2026</span>
+    <span class="rg-hm-logo">RotoGrinders</span>
+  </div>
+
+</div>
+
+<div class="rg-hm-tooltip" id="tooltip"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+const data = {
+  "Vermont": { prob: 2.9233, frac: "1 in 34.2", song: "Here Comes The Sun", rank: 1 },
+  "New Hampshire": { prob: 2.8625, frac: "1 in 34.9", song: "Here Comes The Sun", rank: 2 },
+  "Maine": { prob: 2.5143, frac: "1 in 39.8", song: "Here Comes The Sun", rank: 3 },
+  "Rhode Island": { prob: 1.9146, frac: "1 in 52.2", song: "Here Comes The Sun", rank: 4 },
+  "Montana": { prob: 1.8837, frac: "1 in 53.1", song: "Here Comes The Sun", rank: 5 },
+  "Idaho": { prob: 1.8274, frac: "1 in 54.7", song: "Here Comes The Sun", rank: 6 },
+  "Wyoming": { prob: 1.8038, frac: "1 in 55.4", song: "Penny Lane", rank: 7 },
+  "Wisconsin": { prob: 1.7781, frac: "1 in 56.2", song: "Let It Be", rank: 8 },
+  "North Dakota": { prob: 1.7441, frac: "1 in 57.3", song: "Here Comes The Sun", rank: 9 },
+  "Utah": { prob: 1.7226, frac: "1 in 58.1", song: "Here Comes The Sun", rank: 10 },
+  "Oregon": { prob: 1.5981, frac: "1 in 62.6", song: "Here Comes The Sun", rank: 11 },
+  "Massachusetts": { prob: 1.5855, frac: "1 in 63.1", song: "Here Comes The Sun", rank: 12 },
+  "New Jersey": { prob: 1.5012, frac: "1 in 66.6", song: "Here Comes The Sun", rank: 13 },
+  "Washington": { prob: 1.4843, frac: "1 in 67.4", song: "Here Comes The Sun", rank: 14 },
+  "Alaska": { prob: 1.4454, frac: "1 in 69.2", song: "Here Comes The Sun", rank: 15 },
+  "South Dakota": { prob: 1.4110, frac: "1 in 70.9", song: "Here Comes The Sun", rank: 16 },
+  "Colorado": { prob: 1.4023, frac: "1 in 71.3", song: "Here Comes The Sun", rank: 17 },
+  "New York": { prob: 1.3766, frac: "1 in 72.6", song: "Here Comes The Sun", rank: 18 },
+  "Nebraska": { prob: 1.3705, frac: "1 in 73.0", song: "Here Comes The Sun", rank: 19 },
+  "Pennsylvania": { prob: 1.3648, frac: "1 in 73.3", song: "Here Comes The Sun", rank: 20 },
+  "Connecticut": { prob: 1.3440, frac: "1 in 74.4", song: "Here Comes The Sun", rank: 21 },
+  "Iowa": { prob: 1.3106, frac: "1 in 76.3", song: "Here Comes The Sun", rank: 22 },
+  "Minnesota": { prob: 1.2991, frac: "1 in 77.0", song: "Here Comes The Sun", rank: 23 },
+  "Delaware": { prob: 1.2848, frac: "1 in 77.8", song: "Here Comes The Sun", rank: 24 },
+  "Virginia": { prob: 1.2664, frac: "1 in 79.0", song: "Penny Lane", rank: 25 },
+  "Missouri": { prob: 1.2511, frac: "1 in 79.9", song: "Here Comes The Sun", rank: 26 },
+  "California": { prob: 1.2297, frac: "1 in 81.3", song: "Here Comes The Sun", rank: 27 },
+  "Illinois": { prob: 1.2062, frac: "1 in 82.9", song: "Here Comes The Sun", rank: 28 },
+  "Kansas": { prob: 1.2057, frac: "1 in 82.9", song: "Here Comes The Sun", rank: 29 },
+  "Michigan": { prob: 1.1898, frac: "1 in 84.0", song: "Here Comes The Sun", rank: 30 },
+  "Indiana": { prob: 1.1576, frac: "1 in 86.4", song: "Here Comes The Sun", rank: 31 },
+  "New Mexico": { prob: 1.1531, frac: "1 in 86.7", song: "Here Comes The Sun", rank: 32 },
+  "Ohio": { prob: 1.1518, frac: "1 in 86.8", song: "Here Comes The Sun", rank: 33 },
+  "Florida": { prob: 1.1464, frac: "1 in 87.2", song: "Here Comes The Sun", rank: 34 },
+  "Hawaii": { prob: 1.1184, frac: "1 in 89.4", song: "Let It Be", rank: 35 },
+  "West Virginia": { prob: 1.0828, frac: "1 in 92.4", song: "Here Comes The Sun", rank: 36 },
+  "Arizona": { prob: 1.0781, frac: "1 in 92.8", song: "Here Comes The Sun", rank: 37 },
+  "South Carolina": { prob: 1.0501, frac: "1 in 95.2", song: "Here Comes The Sun", rank: 38 },
+  "Kentucky": { prob: 1.0279, frac: "1 in 97.3", song: "Here Comes The Sun", rank: 39 },
+  "Maryland": { prob: 1.0108, frac: "1 in 98.9", song: "Here Comes The Sun", rank: 40 },
+  "Oklahoma": { prob: 0.9957, frac: "1 in 100.4", song: "Here Comes The Sun", rank: 41 },
+  "Nevada": { prob: 0.9857, frac: "1 in 101.5", song: "Hey Jude", rank: 42 },
+  "North Carolina": { prob: 0.9536, frac: "1 in 104.9", song: "Here Comes The Sun", rank: 43 },
+  "Tennessee": { prob: 0.9501, frac: "1 in 105.3", song: "Here Comes The Sun", rank: 44 },
+  "Texas": { prob: 0.9174, frac: "1 in 109.0", song: "Here Comes The Sun", rank: 45 },
+  "Arkansas": { prob: 0.8746, frac: "1 in 114.3", song: "Here Comes The Sun", rank: 46 },
+  "Alabama": { prob: 0.8022, frac: "1 in 124.7", song: "Let It Be", rank: 47 },
+  "Georgia": { prob: 0.7499, frac: "1 in 133.4", song: "Here Comes The Sun", rank: 48 },
+  "Louisiana": { prob: 0.7186, frac: "1 in 139.2", song: "Let It Be", rank: 49 },
+  "Mississippi": { prob: 0.6394, frac: "1 in 156.4", song: "Here Comes The Sun", rank: 50 }
+};
+
+const colorScale = d3.scaleSequential()
+  .domain([0.6, 2.93])
+  .interpolator(d3.interpolate("#fef3dc", "#7a2800"));
+
+const svg = d3.select("#map-svg");
+const tooltip = document.getElementById("tooltip");
+
+const projection = d3.geoAlbersUsa()
+  .scale(1000)
+  .translate([480, 300]);
+
+const path = d3.geoPath().projection(projection);
+
+fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
+  .then(r => r.json())
+  .then(us => {
+    const states = topojson.feature(us, us.objects.states);
+
+    const nameMap = {
+      "01": "Alabama", "02": "Alaska", "04": "Arizona", "05": "Arkansas",
+      "06": "California", "08": "Colorado", "09": "Connecticut", "10": "Delaware",
+      "12": "Florida", "13": "Georgia", "15": "Hawaii", "16": "Idaho",
+      "17": "Illinois", "18": "Indiana", "19": "Iowa", "20": "Kansas",
+      "21": "Kentucky", "22": "Louisiana", "23": "Maine", "24": "Maryland",
+      "25": "Massachusetts", "26": "Michigan", "27": "Minnesota", "28": "Mississippi",
+      "29": "Missouri", "30": "Montana", "31": "Nebraska", "32": "Nevada",
+      "33": "New Hampshire", "34": "New Jersey", "35": "New Mexico", "36": "New York",
+      "37": "North Carolina", "38": "North Dakota", "39": "Ohio", "40": "Oklahoma",
+      "41": "Oregon", "42": "Pennsylvania", "44": "Rhode Island", "45": "South Carolina",
+      "46": "South Dakota", "47": "Tennessee", "48": "Texas", "49": "Utah",
+      "50": "Vermont", "51": "Virginia", "53": "Washington", "54": "West Virginia",
+      "55": "Wisconsin", "56": "Wyoming"
+    };
+
+    svg.selectAll(".state-path")
+      .data(states.features)
+      .enter()
+      .append("path")
+      .attr("class", "state-path")
+      .attr("d", path)
+      .attr("fill", d => {
+        const fips = d.id.toString().padStart(2, "0");
+        const name = nameMap[fips];
+        const row = data[name];
+        return row ? colorScale(row.prob) : "#eeebe3";
+      })
+      .on("mousemove", function(event, d) {
+        const fips = d.id.toString().padStart(2, "0");
+        const name = nameMap[fips];
+        const row = data[name];
+        if (!row) return;
+        tooltip.style.opacity = "1";
+        tooltip.style.left = (event.pageX + 14) + "px";
+        tooltip.style.top = (event.pageY - 10) + "px";
+        tooltip.innerHTML = `
+          <div class="tt-state">#${row.rank} ${name}</div>
+          <div class="tt-prob">${row.prob.toFixed(2)}% chance</div>
+          <div class="tt-frac">${row.frac} music searches is Beatles</div>
+          <div class="tt-song">Top song: ${row.song}</div>
+        `;
+      })
+      .on("mouseleave", function() {
+        tooltip.style.opacity = "0";
+      });
+  });
+</script>
+</body>
+</html>
